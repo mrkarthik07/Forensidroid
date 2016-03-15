@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Forensidroid</string>
+ 
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">Forensidroid</string>
+    <string name="str_tv_location">GPS Current Location</string>
+    <string name="str_tv_locationnetwork">Network Current Location</string>
+    <string name="sensorlist">Sensor Details</string>
+    <string name="accelerometer">Accelerometer Sensor</string>
+    <string name="magneticfieldsensor">Magnetic Sensor</string>
+    <string name="ambientTemperaturetext">Ambient Temperature</string>
+    <string name="gravitysensortext">Gravity Sensor</string>
+    <string name="temperaturesensortext">Temperature Sensor</string>
+    <string name="lightsensortext">Light Sensor</string>
+    <string name="proximitysensortext">Proximity Sensor</string>
+    <string name="gyroscopesensortext">Gyroscope Sensor</string>
+    <string name="linearAccelerationSensortext">Linear Acceleration Sensor</string>
+    
+    <string name="celsius">&#176;C</string>
+    
+    <string name="menu_Enable_record">Enable Record</string>
+
+    <string name="receiver_start_call">Start record call</string>
+    <string name="receiver_end_call">End Record call</string>
+    <string name="options_title">Recording options</string>
+
+    <string name="radio_Enable_record">Enable call recording</string>
+
+    <string name="notification_ticker">Recording is now Starting</string>
+    <string name="notification_title">The phone is now on a call</string>
+    <string name="notification_text">If recording was enabled, recording should have started, if not you can enable recording in the application, the phone will stop the recording when the conversation ends</string>
+    <string name="record_impossible">Unfortunately, it is not possible to record calls in this device. (Usually because another application/service is using the microphone in the background)</string>
+    
+</resources>

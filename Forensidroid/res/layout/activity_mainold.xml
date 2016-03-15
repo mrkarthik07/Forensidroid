@@ -1,0 +1,226 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivityCallRecorder" >
+    
+    <TextView
+        android:id="@+id/tv_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/str_tv_location"
+        android:textStyle="bold" />
+    
+    <TextView
+        android:id="@+id/tv_longitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_location"
+        android:layout_centerHorizontal="true" />
+    
+    <TextView
+        android:id="@+id/tv_latitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_longitude"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/tv_accuracy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_latitude"
+        android:layout_below="@+id/tv_latitude" />
+
+    <TextView
+        android:id="@+id/tv_altitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_accuracy"
+        android:layout_below="@+id/tv_accuracy" />
+    
+    <TextView
+        android:id="@+id/tv_seconds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_accuracy"
+        android:layout_below="@+id/tv_altitude" />
+    
+    <TextView
+        android:id="@+id/tv_locationnetwork"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/tv_seconds"
+        android:text="@string/str_tv_locationnetwork"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/gpsLongitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_seconds"
+        android:layout_below="@+id/tv_seconds" />
+    
+    <TextView
+        android:id="@+id/gpsLatitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_seconds"
+        android:layout_below="@+id/gpsLongitude" />
+    
+    <TextView
+        android:id="@+id/gpsAltitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_seconds"
+        android:layout_below="@+id/gpsLatitude" />
+    
+    <TextView
+        android:id="@+id/gpsBearing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_seconds"
+        android:layout_below="@+id/gpsAltitude" />
+    
+    <TextView
+        android:id="@+id/gpsSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_seconds"
+        android:layout_below="@+id/gpsBearing" />
+    
+    <TextView
+        android:id="@+id/gpsAccuracy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_seconds"
+        android:layout_below="@+id/gpsSpeed" />
+    
+    <TextView
+        android:id="@+id/gpsSatellite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_seconds"
+        android:layout_below="@+id/gpsAccuracy" />
+    
+    <TextView
+        android:id="@+id/gpsAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_seconds"
+        android:layout_below="@+id/gpsSatellite" />
+    
+    <TextView
+        android:id="@+id/accelerometer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/gpsAddress"
+        android:text="@string/accelerometer"
+        android:textStyle="bold" />
+    
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_seconds"
+        android:layout_below="@+id/accelerometer" />
+    
+    <TextView
+        android:id="@+id/sensorlist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/textView"
+        android:text="@string/sensorlist"
+        android:textStyle="bold" />
+    
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_seconds"
+        android:layout_below="@+id/sensorlist" />
+    
+     <TextView  
+         android:id="@+id/gravitysensor" 
+         android:textSize="20sp"
+    	android:layout_width="fill_parent"  
+    	android:layout_height="wrap_content" 
+    	android:layout_below="@+id/textView2" />
+
+     <TextView  
+         android:id="@+id/temperaturesensor" 
+         android:textSize="20sp"
+    	android:layout_width="fill_parent"  
+    	android:layout_height="wrap_content" 
+    	android:layout_below="@+id/gravitysensor" />
+     
+     <TextView  
+         android:id="@+id/lightsensor" 
+         android:textSize="20sp"
+    	android:layout_width="fill_parent"  
+    	android:layout_height="wrap_content" 
+    	android:layout_below="@+id/temperaturesensor" />
+     
+     <TextView  
+         android:id="@+id/proximitysensor" 
+         android:textSize="20sp"
+    	android:layout_width="fill_parent"  
+    	android:layout_height="wrap_content" 
+    	android:layout_below="@+id/lightsensor" />
+     
+     <TextView  
+         android:id="@+id/gyroscopesensor" 
+         android:textSize="20sp"
+    	android:layout_width="fill_parent"  
+    	android:layout_height="wrap_content" 
+    	android:layout_below="@+id/proximitysensor" />
+     
+     <TextView  
+         android:id="@+id/ambientTemperature" 
+         android:textSize="20sp"
+    	android:layout_width="fill_parent"  
+    	android:layout_height="wrap_content" 
+    	android:layout_below="@+id/gyroscopesensor" />
+     
+     <TextView  
+         android:id="@+id/linearAccelerationSensor" 
+         android:textSize="20sp"
+    	android:layout_width="fill_parent"  
+    	android:layout_height="wrap_content" 
+    	android:layout_below="@+id/ambientTemperature" />
+     
+     <TextView
+        android:id="@+id/magneticfieldsensor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/linearAccelerationSensor"
+        android:text="@string/magneticfieldsensor"
+        android:textStyle="bold" />
+     
+     <TextView  
+         android:id="@+id/valMag_X" 
+         android:textSize="20sp"
+    	android:layout_width="fill_parent"  
+    	android:layout_height="wrap_content" 
+    	android:layout_below="@+id/magneticfieldsensor" />
+     
+     <TextView  
+         android:id="@+id/valMag_Y" 
+         android:textSize="20sp"
+    	android:layout_width="fill_parent"  
+    	android:layout_height="wrap_content" 
+    	android:layout_below="@+id/valMag_X" />
+     
+     <TextView  
+         android:id="@+id/valMag_Z" 
+         android:textSize="20sp"
+    	android:layout_width="fill_parent"  
+    	android:layout_height="wrap_content" 
+    	android:layout_below="@+id/valMag_Y" />
+     
+</RelativeLayout>
