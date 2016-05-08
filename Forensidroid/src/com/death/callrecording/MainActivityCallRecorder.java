@@ -3,7 +3,7 @@ package com.death.callrecording;
 import java.io.IOException;
 import java.io.InputStream;
 
-import com.death.sensors.R;
+import com.example.badone.R;
 
 import android.app.Activity;
 import android.app.AlertDialog;

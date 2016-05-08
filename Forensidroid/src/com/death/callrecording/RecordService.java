@@ -2,7 +2,7 @@ package com.death.callrecording;
 
 import java.io.IOException;
 
-import com.death.sensors.R;
+import com.example.badone.R;
 
 import android.app.Notification;
 import android.app.PendingIntent;

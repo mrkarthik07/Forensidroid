@@ -1,6 +1,9 @@
 package com.death.sensors;
 
 import java.util.Calendar;
+
+import com.example.badone.R;
+
 import android.app.Activity;
 import android.content.Context;
 import android.location.Location;

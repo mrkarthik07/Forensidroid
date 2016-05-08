@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+    
+    <TextView
+        android:id="@+id/tv_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/str_tv_location"
+        android:textStyle="bold" />
+    
+    <TextView
+        android:id="@+id/tv_longitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_location"
+        android:layout_centerHorizontal="true" />
+    
+    <TextView
+        android:id="@+id/tv_latitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_longitude"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/tv_accuracy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_latitude"
+        android:layout_centerHorizontal="false"
+        android:layout_centerInParent="true" />
+
+    <TextView
+        android:id="@+id/tv_altitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_accuracy"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true" />
+    
+    <TextView
+        android:id="@+id/tv_seconds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_altitude"
+        android:layout_centerHorizontal="false"
+        android:layout_centerInParent="true" />
+    
+    <TextView
+        android:id="@+id/tv_locationnetwork"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/tv_seconds"
+        android:text="@string/str_tv_locationnetwork"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/gpsLongitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_seconds"
+        android:layout_centerHorizontal="false"
+        android:layout_centerInParent="true" />
+    
+    <TextView
+        android:id="@+id/gpsLatitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gpsLongitude"
+        android:layout_centerHorizontal="false"
+        android:layout_centerInParent="true" />
+    
+    <TextView
+        android:id="@+id/gpsAltitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gpsLatitude"
+        android:layout_centerHorizontal="false"
+        android:layout_centerInParent="true" />
+    
+    <TextView
+        android:id="@+id/gpsBearing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gpsAltitude"
+        android:layout_centerInParent="true" />
+    
+    <TextView
+        android:id="@+id/gpsSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gpsBearing"
+        android:layout_centerInParent="true" />
+    
+    <TextView
+        android:id="@+id/gpsAccuracy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gpsSpeed"
+        android:layout_centerInParent="true" />
+    
+    <TextView
+        android:id="@+id/gpsSatellite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gpsAccuracy"
+        android:layout_centerInParent="true" />
+    
+    <TextView
+        android:id="@+id/gpsAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gpsSatellite"
+        android:layout_centerInParent="true" />
+    
+    <TextView
+        android:id="@+id/accelerometer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/gpsAddress"
+        android:text="@string/accelerometer"
+        android:textStyle="bold" />
+    
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/accelerometer"
+        android:layout_centerHorizontal="true" />
+    
+    <TextView
+        android:id="@+id/sensorlist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/textView"
+        android:text="@string/sensorlist"
+        android:textStyle="bold" />
+    
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sensorlist"
+        android:layout_centerInParent="true" />
+    
+    <TextView
+        android:id="@+id/gravitysensortext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/textView2"
+        android:text="@string/gravitysensortext"
+        android:textStyle="bold" />
+    
+     <TextView
+         android:id="@+id/gravitysensor"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/gravitysensortext"
+         android:layout_centerHorizontal="true" />
+     
+      <TextView
+        android:id="@+id/temperaturesensortext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/gravitysensor"
+        android:text="@string/temperaturesensortext"
+        android:textStyle="bold" />
+    
+     <TextView
+         android:id="@+id/temperaturesensor"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/temperaturesensortext"
+         android:layout_centerHorizontal="true" />
+     
+     <TextView
+        android:id="@+id/lightsensortext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/temperaturesensor"
+        android:text="@string/lightsensortext"
+        android:textStyle="bold" />
+     
+     <TextView
+         android:id="@+id/lightsensor"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/lightsensortext"
+         android:layout_centerInParent="true"
+         android:layout_centerVertical="true"/>
+     
+     <TextView
+        android:id="@+id/proximitysensortext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/lightsensor"
+        android:text="@string/proximitysensortext"
+        android:textStyle="bold" />
+     
+     <TextView
+         android:id="@+id/proximitysensor"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/proximitysensortext"
+         android:layout_centerInParent="true"/>
+     
+     <TextView
+        android:id="@+id/gyroscopesensortext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/proximitysensor"
+        android:text="@string/gyroscopesensortext"
+        android:textStyle="bold" />
+     
+     <TextView
+         android:id="@+id/gyroscopesensor"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/gyroscopesensortext"
+         android:layout_centerInParent="true"
+         android:layout_centerVertical="true" />
+     
+     <TextView
+         android:id="@+id/ambientTemperaturetext"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/gyroscopesensor"
+         android:layout_centerInParent="true"
+         android:text="@string/ambientTemperaturetext"
+         android:textStyle="bold" />
+     
+     <TextView
+         android:id="@+id/ambientTemperature"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/ambientTemperaturetext"
+         android:layout_centerHorizontal="true"
+         android:layout_centerInParent="true" />
+     
+      <TextView
+         android:id="@+id/linearAccelerationSensortext"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/ambientTemperature"
+         android:layout_centerInParent="true"
+         android:text="@string/linearAccelerationSensortext"
+         android:textStyle="bold" />
+     
+     <TextView
+         android:id="@+id/linearAccelerationSensor"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/linearAccelerationSensortext"
+         android:layout_centerInParent="true"
+         android:layout_centerVertical="true" />
+     
+     <TextView
+        android:id="@+id/magneticfieldsensor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/linearAccelerationSensor"
+        android:text="@string/magneticfieldsensor"
+        android:textStyle="bold" />
+     
+     <TextView
+         android:id="@+id/valMag_X"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/magneticfieldsensor"
+         android:layout_centerInParent="true"
+         android:layout_centerVertical="true"/>
+     
+     <TextView
+         android:id="@+id/valMag_Y"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/valMag_X"
+         android:layout_centerInParent="true"
+         android:layout_centerVertical="true" />
+     
+     <TextView
+         android:id="@+id/valMag_Z"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/valMag_Y"
+         android:layout_centerInParent="true"
+         android:layout_centerVertical="true" />
+    
+     <TextView
+        android:id="@+id/orientationsensor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/valMag_Z"
+        android:text="@string/orientationsensor"
+        android:textStyle="bold" />
+     
+     <TextView
+         android:id="@+id/Azimuth"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/orientationsensor"
+         android:layout_centerInParent="true"
+         android:layout_centerVertical="true"/>
+     
+     <TextView
+         android:id="@+id/Pitch"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/Azimuth"
+         android:layout_centerInParent="true"
+         android:layout_centerVertical="true" />
+     
+     <TextView
+         android:id="@+id/Roll"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/Pitch"
+         android:layout_centerInParent="true"
+         android:layout_centerVertical="true" />
+     
+     <TextView
+         android:id="@+id/orienlabel"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/Roll"
+         android:layout_centerInParent="true"
+         android:layout_centerVertical="true" />
+     
+	<TextView
+        android:id="@+id/pressuresensortext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/orienlabel"
+        android:text="@string/pressuresensor"
+        android:textStyle="bold" />
+     
+     <TextView
+         android:id="@+id/pressuresensor"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/pressuresensortext"
+         android:layout_centerInParent="true"
+         android:layout_centerVertical="true"/>
+     
+     <TextView
+        android:id="@+id/StepCountertext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/pressuresensor"
+        android:text="@string/StepCounter"
+        android:textStyle="bold" />
+     
+     <TextView
+         android:id="@+id/StepCounter"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/StepCountertext"
+         android:layout_centerInParent="true"
+         android:layout_centerVertical="true"/>
+     
+     <TextView
+        android:id="@+id/StepDetectortext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/StepCounter"
+        android:text="@string/StepDetector"
+        android:textStyle="bold" />
+     
+     <TextView
+         android:id="@+id/StepDetector"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/StepDetectortext"
+         android:layout_centerInParent="true"
+         android:layout_centerVertical="true"/>
+     
+     <TextView
+        android:id="@+id/sigmotiontext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/StepDetector"
+        android:text="@string/sigmotion"
+        android:textStyle="bold" />
+     
+     <TextView
+         android:id="@+id/sigmotion"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/sigmotiontext"
+         android:layout_centerInParent="true"
+         android:layout_centerVertical="true"/>
+     
+
+</RelativeLayout>
+</ScrollView>

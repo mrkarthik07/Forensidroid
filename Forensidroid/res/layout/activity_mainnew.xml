@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+   
+    
+     <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+    
+    <TextView
+        android:id="@+id/tv_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/str_tv_location"
+        android:textStyle="bold" />
+    
+    <TextView
+        android:id="@+id/tv_longitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_location"
+        android:layout_centerHorizontal="true" />
+    
+    <TextView
+        android:id="@+id/tv_latitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_longitude"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/tv_accuracy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_latitude"
+        android:layout_centerHorizontal="false"
+        android:layout_centerInParent="true" />
+
+    <TextView
+        android:id="@+id/tv_altitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_accuracy"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true" />
+    
+    <TextView
+        android:id="@+id/tv_seconds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_altitude"
+        android:layout_centerHorizontal="false"
+        android:layout_centerInParent="true" />
+    
+    <TextView
+        android:id="@+id/tv_locationnetwork"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/tv_seconds"
+        android:text="@string/str_tv_locationnetwork"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/gpsLongitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_locationnetwork"
+        android:layout_centerHorizontal="false"
+        android:layout_centerInParent="true" />
+    
+    <TextView
+        android:id="@+id/gpsLatitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gpsLongitude"
+        android:layout_centerHorizontal="false"
+        android:layout_centerInParent="true" />
+    
+    <TextView
+        android:id="@+id/gpsAltitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gpsLatitude"
+        android:layout_centerHorizontal="false"
+        android:layout_centerInParent="true" />
+    
+    <TextView
+        android:id="@+id/gpsBearing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gpsAltitude"
+        android:layout_centerInParent="true" />
+    
+    <TextView
+        android:id="@+id/gpsSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gpsBearing"
+        android:layout_centerInParent="true" />
+    
+    <TextView
+        android:id="@+id/gpsAccuracy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gpsSpeed"
+        android:layout_centerInParent="true" />
+    
+    <TextView
+        android:id="@+id/gpsSatellite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gpsAccuracy"
+        android:layout_centerInParent="true" />
+    
+    <TextView
+        android:id="@+id/gpsAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gpsSatellite"
+        android:layout_centerInParent="true" />
+    
+    </RelativeLayout>
+    
+</ScrollView>
