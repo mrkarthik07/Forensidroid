@@ -1,5 +1,8 @@
 <resources>
-    <string name="app_name">Forensidroid</string>
+    
+    <string name="app_name">BadOne</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
  
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">Forensidroid</string>
@@ -15,8 +18,15 @@
     <string name="proximitysensortext">Proximity Sensor</string>
     <string name="gyroscopesensortext">Gyroscope Sensor</string>
     <string name="linearAccelerationSensortext">Linear Acceleration Sensor</string>
+    <string name="orientationsensor">Orientation Sensor</string>
+    <string name="pressuresensor">Pressure Sensor</string>
+    <string name="StepCounter">Step Counter</string>
+    <string name="StepDetector">Step Detector</string>
+    <string name="sigmotion">Significant Motion</string>
+    <string name="rotationvectortext">Rotational Vector</string>
     
     <string name="celsius">&#176;C</string>
+    <string name="orienlabel">No orientation sensor data</string>
     
     <string name="menu_Enable_record">Enable Record</string>
 

@@ -1,55 +1,55 @@
 package com.death.sensors;
 
-import java.io.IOException;
 import java.util.Calendar;
-import java.util.List;
-import java.util.Locale;
-
-import com.death.logging.appendLog;
-import com.death.sensors.R;
-
 import android.app.Activity;
 import android.content.Context;
-import android.location.Address;
-import android.location.Geocoder;
-import android.location.GpsSatellite;
-import android.location.GpsStatus;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.location.GpsStatus.Listener;
 import android.os.Bundle;
 import android.view.Menu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 public class GPSLocationSensor extends Activity implements LocationListener{
 	
 	LocationManager locationManager ;
 	String provider;
-	TextView textView;
-	private SensorValue address;
-	String addressText;
-	int numsat = 0;
+	LocationManager nlocationManager ;
+	String nprovider;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_mainnew);
         
-        // Getting LocationManager object
+        // Getting GPSLocationManager object
         locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);        
 		provider = LocationManager.GPS_PROVIDER;
         if(provider!=null && !provider.equals("")){
         	// Get the location from the given provider 
-            Location location = locationManager.getLastKnownLocation(provider);
-            locationManager.requestLocationUpdates(provider, 0, 0, this);
-                        
+        	Location location = locationManager.getLastKnownLocation(provider);
+        	locationManager.requestLocationUpdates(provider, 0, 0, this);       
             if(location!=null)
             	onLocationChanged(location) ;
             else
             	Toast.makeText(getBaseContext(), "GPS Location can't be retrieved", Toast.LENGTH_SHORT).show();
+        }else{
+        	Toast.makeText(getBaseContext(), "No Provider Found", Toast.LENGTH_SHORT).show();
+        }
+        
+        // Getting NetworkLocationManager object
+        nlocationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);        
+        nprovider = LocationManager.NETWORK_PROVIDER;
+                        
+        if(nprovider!=null && !nprovider.equals("")){
+        	// Get the location from the given provider 
+            Location nlocation = nlocationManager.getLastKnownLocation(nprovider);
+            nlocationManager.requestLocationUpdates(nprovider, 0, 0, this);
+            if(nlocation!=null)
+            	onLocationChanged(nlocation) ;
+            else
+            	Toast.makeText(getBaseContext(), "Location can't be retrieved", Toast.LENGTH_SHORT).show();
         }else{
         	Toast.makeText(getBaseContext(), "No Provider Found", Toast.LENGTH_SHORT).show();
         }
@@ -90,8 +90,22 @@ public class GPSLocationSensor extends Activity implements LocationListener{
 		String toBeAlti = tvAltitude.getText().toString();
 		String toBeSeci = tvSeconds.getText().toString();
 					
-		appendLog appendLog = new appendLog(toBeLongi, toBeLati, toBeAcc, toBeAlti, toBeSeci);
-		
+		//appendLog appendLog = new appendLog(toBeLongi, toBeLati, toBeAcc, toBeAlti, toBeSeci);
+		TextView gpsLongitude = (TextView) findViewById(R.id.gpsLongitude);
+		TextView gpsLatitude = (TextView) findViewById(R.id.gpsLatitude);
+		TextView gpsAltitude = (TextView) findViewById(R.id.gpsAltitude);
+		TextView gpsBearing = (TextView) findViewById(R.id.gpsBearing);
+		TextView gpsSpeed = (TextView) findViewById(R.id.gpsSpeed);
+		TextView gpsAccuracy = (TextView) findViewById(R.id.gpsAccuracy);
+		findViewById(R.id.gpsSatellite);
+		findViewById(R.id.gpsAddress);
+	
+		gpsLongitude.setText("Longitude = "+ location.getLongitude());
+		gpsLatitude.setText("Latitude = "+ location.getLatitude());
+		gpsAltitude.setText("Altitude = "+ location.getAltitude());
+		gpsBearing.setText("Bearing = "+ location.getBearing());
+		gpsSpeed.setText("Speed = "+ location.getSpeed());
+		gpsAccuracy.setText("Accuracy = "+ location.getAccuracy());
 	}
 
 	@Override
@@ -109,50 +123,50 @@ public class GPSLocationSensor extends Activity implements LocationListener{
 		// TODO Auto-generated method stub		
 	}
 	
-	public void test() {
-		Location location = locationManager.getLastKnownLocation(provider);
-		if(provider!=null && provider.equals("gps")){
-        // Get the location from the given provider 
-			locationManager.requestLocationUpdates(provider, 20000, 1, this);
-            if(location!=null)
-            	onLocationChanged(location) ;
-            else
-            	Toast.makeText(getBaseContext(), "Location can't be retrieved", Toast.LENGTH_SHORT).show();
-        }else{
-        	Toast.makeText(getBaseContext(), "No Provider Found", Toast.LENGTH_SHORT).show();
-        }
-		
-		Geocoder myLocation = new Geocoder(getBaseContext().getApplicationContext(), Locale.getDefault());
-		List<Address> list = null;
-		try {
-			list = myLocation.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-			if (list != null && list.size() > 0) {
-				Address location1 = list.get(0);
-				addressText = String.format("%s, %s, %s",
-						location1.getMaxAddressLineIndex() > 0 ? location1.getAddressLine(0) : "",
-								location1.getLocality(), // location.getAdminArea(), 
-								location1.getCountryName());
-			}
-			else
-				address.setValue("n/a");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		new Listener() {
-			
-			@Override
-			public void onGpsStatusChanged(int event) {
-				if (event == GpsStatus.GPS_EVENT_SATELLITE_STATUS){
-					GpsStatus gpsstatus = locationManager.getGpsStatus(null);
-					Iterable<GpsSatellite> gpsit = gpsstatus.getSatellites();
-					
-					for(GpsSatellite sat: gpsit){
-						numsat++;
-					}	
-					//notifyListeners();
-				}	
-			}
-		};	
-	}
+//	public void test() {
+//		Location location = locationManager.getLastKnownLocation(provider);
+//		if(provider!=null && provider.equals("gps")){
+//        // Get the location from the given provider 
+//			locationManager.requestLocationUpdates(provider, 20000, 1, this);
+//            if(location!=null)
+//            	onLocationChanged(location) ;
+//            else
+//            	Toast.makeText(getBaseContext(), "Location can't be retrieved", Toast.LENGTH_SHORT).show();
+//        }else{
+//        	Toast.makeText(getBaseContext(), "No Provider Found", Toast.LENGTH_SHORT).show();
+//        }
+//		
+//		Geocoder myLocation = new Geocoder(getBaseContext().getApplicationContext(), Locale.getDefault());
+//		List<Address> list = null;
+//		try {
+//			list = myLocation.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+//			if (list != null && list.size() > 0) {
+//				Address location1 = list.get(0);
+//				addressText = String.format("%s, %s, %s",
+//						location1.getMaxAddressLineIndex() > 0 ? location1.getAddressLine(0) : "",
+//								location1.getLocality(), // location.getAdminArea(), 
+//								location1.getCountryName());
+//			}
+//			else
+//				address.setValue("n/a");
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		new Listener() {
+//			
+//			@Override
+//			public void onGpsStatusChanged(int event) {
+//				if (event == GpsStatus.GPS_EVENT_SATELLITE_STATUS){
+//					GpsStatus gpsstatus = locationManager.getGpsStatus(null);
+//					Iterable<GpsSatellite> gpsit = gpsstatus.getSatellites();
+//					
+//					for(GpsSatellite sat: gpsit){
+//						numsat++;
+//					}	
+//					//notifyListeners();
+//				}	
+//			}
+//		};	
+//	}
 }

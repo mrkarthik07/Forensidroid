@@ -2,6 +2,7 @@ package com.death.callrecording;
 
 import java.io.IOException;
 import java.io.InputStream;
+
 import com.death.sensors.R;
 
 import android.app.Activity;
@@ -33,7 +34,7 @@ public class MainActivityCallRecorder extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_mainnew);
 
 		res = getResources();
 

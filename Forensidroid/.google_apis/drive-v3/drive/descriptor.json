@@ -4,7 +4,7 @@
   "name": "drive", 
   "version": "v3", 
   "title": "Drive API", 
-  "description": "The API to interact with Drive.", 
+  "description": "Manages files in Drive including uploading, downloading, searching, detecting changes, and updating sharing permissions.", 
   "discoveryRestUrl": "https://www.googleapis.com/discovery/v1/apis/drive/v3/rest", 
   "discoveryLink": "./apis/drive/v3/rest", 
   "icons": {
@@ -17,40 +17,40 @@
   "canonicalName": null, 
   "files": [
     {
-      "downloadUrl": "/downloads/drive/v3/14/java/1.18.0-rc/google-api-services-drive-v3-rev14-1.18.0-rc.jar", 
-      "path": "google-api-services-drive-v3-rev14-1.18.0-rc.jar", 
+      "downloadUrl": "/downloads/drive/v3/23/java/1.21.0/google-api-services-drive-v3-rev23-1.21.0.jar", 
+      "path": "google-api-services-drive-v3-rev23-1.21.0.jar", 
       "type": "binary", 
-      "timestamp": "2016-03-11 00:47"
+      "timestamp": "2016-05-04 09:20"
     }, 
     {
-      "downloadUrl": "/downloads/drive/v3/14/java/1.18.0-rc/google-api-services-drive-v3-rev14-1.18.0-rc-javadoc.jar", 
-      "path": "google-api-services-drive-v3-rev14-1.18.0-rc-javadoc.jar", 
+      "downloadUrl": "/downloads/drive/v3/23/java/1.21.0/google-api-services-drive-v3-rev23-1.21.0-javadoc.jar", 
+      "path": "google-api-services-drive-v3-rev23-1.21.0-javadoc.jar", 
       "type": "documentation", 
-      "timestamp": "2016-03-11 00:48"
+      "timestamp": "2016-05-04 09:21"
     }, 
     {
-      "downloadUrl": "/downloads/drive/v3/14/java/1.18.0-rc/google-api-services-drive-v3-rev14-1.18.0-rc-sources.jar", 
-      "path": "google-api-services-drive-v3-rev14-1.18.0-rc-sources.jar", 
+      "downloadUrl": "/downloads/drive/v3/23/java/1.21.0/google-api-services-drive-v3-rev23-1.21.0-sources.jar", 
+      "path": "google-api-services-drive-v3-rev23-1.21.0-sources.jar", 
       "type": "source", 
-      "timestamp": "2016-03-11 01:37"
+      "timestamp": "2016-05-04 00:11"
     }, 
     {
-      "path": "google-api-services-drive-v3-rev14-1.18.0-rc.jar.properties", 
+      "path": "google-api-services-drive-v3-rev23-1.21.0.jar.properties", 
       "type": "android.properties"
     }
   ], 
-  "revision": 14, 
+  "revision": 23, 
   "language": "java", 
-  "language_version": "1.18.0-rc", 
+  "language_version": "1.21.0", 
   "dependencies": [
     {
       "files": [
         {
-          "downloadUrl": "http://dl.google.com/googleapis/google-api-java-client-featured.zip", 
+          "downloadUrl": "http://google-api-java-client.googlecode.com/files/google-api-java-client-1.21.0.zip", 
           "type": "bundle"
         }
       ], 
-      "version": "1.18.0-rc", 
+      "version": "1.21.0", 
       "name": "Google API Java Client Bundle", 
       "environments": [
         "manual"
@@ -59,11 +59,11 @@
     {
       "files": [
         {
-          "path": "libs/google-api-client-1.18.0-rc.jar", 
+          "path": "libs/google-api-client-1.21.0.jar", 
           "type": "binary"
         }, 
         {
-          "path": "libs-sources/google-api-client-1.18.0-rc-sources.jar", 
+          "path": "libs-sources/google-api-client-1.21.0-sources.jar", 
           "type": "source"
         }, 
         {
@@ -71,11 +71,11 @@
           "type": "license"
         }, 
         {
-          "path": "libs/google-api-client-1.18.0-rc.jar.properties", 
+          "path": "libs/google-api-client-1.21.0.jar.properties", 
           "type": "android-properties"
         }
       ], 
-      "version": "1.18.0-rc", 
+      "version": "1.21.0", 
       "name": "Google APIs Client Library", 
       "environments": [
         "*"
@@ -84,11 +84,11 @@
     {
       "files": [
         {
-          "path": "libs/google-api-client-android-1.18.0-rc.jar", 
+          "path": "libs/google-api-client-android-1.21.0.jar", 
           "type": "binary"
         }, 
         {
-          "path": "libs-sources/google-api-client-android-1.18.0-rc-sources.jar", 
+          "path": "libs-sources/google-api-client-android-1.21.0-sources.jar", 
           "type": "source"
         }, 
         {
@@ -96,11 +96,11 @@
           "type": "license"
         }, 
         {
-          "path": "libs/google-api-client-android-1.18.0-rc.jar.properties", 
+          "path": "libs/google-api-client-android-1.21.0.jar.properties", 
           "type": "android-properties"
         }
       ], 
-      "version": "1.18.0-rc", 
+      "version": "1.21.0", 
       "name": "Android platform extensions to the Google APIs Client Library", 
       "environments": [
         "android"
@@ -109,11 +109,11 @@
     {
       "files": [
         {
-          "path": "libs/google-api-client-appengine-1.18.0-rc.jar", 
+          "path": "libs/google-api-client-appengine-1.21.0.jar", 
           "type": "binary"
         }, 
         {
-          "path": "libs-sources/google-api-client-appengine-1.18.0-rc-sources.jar", 
+          "path": "libs-sources/google-api-client-appengine-1.21.0-sources.jar", 
           "type": "source"
         }, 
         {
@@ -121,7 +121,7 @@
           "type": "license"
         }
       ], 
-      "version": "1.18.0-rc", 
+      "version": "1.21.0", 
       "name": "Google App Engine extensions to the Google APIs Client Library", 
       "environments": [
         "appengine"
@@ -130,11 +130,11 @@
     {
       "files": [
         {
-          "path": "libs/google-api-client-gson-1.18.0-rc.jar", 
+          "path": "libs/google-api-client-gson-1.21.0.jar", 
           "type": "binary"
         }, 
         {
-          "path": "libs-sources/google-api-client-gson-1.18.0-rc-sources.jar", 
+          "path": "libs-sources/google-api-client-gson-1.21.0-sources.jar", 
           "type": "source"
         }, 
         {
@@ -142,7 +142,7 @@
           "type": "license"
         }
       ], 
-      "version": "1.18.0-rc", 
+      "version": "1.21.0", 
       "name": "GSON extensions to the Google APIs Client Library", 
       "environments": [
         "generic"
@@ -151,11 +151,11 @@
     {
       "files": [
         {
-          "path": "libs/google-api-client-jackson2-1.18.0-rc.jar", 
+          "path": "libs/google-api-client-jackson2-1.21.0.jar", 
           "type": "binary"
         }, 
         {
-          "path": "libs-sources/google-api-client-jackson2-1.18.0-rc-sources.jar", 
+          "path": "libs-sources/google-api-client-jackson2-1.21.0-sources.jar", 
           "type": "source"
         }, 
         {
@@ -163,7 +163,7 @@
           "type": "license"
         }
       ], 
-      "version": "1.18.0-rc", 
+      "version": "1.21.0", 
       "name": "Jackson 2 extensions to the Google APIs Client Library", 
       "environments": [
         "generic"
@@ -172,11 +172,11 @@
     {
       "files": [
         {
-          "path": "libs/google-api-client-java6-1.18.0-rc.jar", 
+          "path": "libs/google-api-client-java6-1.21.0.jar", 
           "type": "binary"
         }, 
         {
-          "path": "libs-sources/google-api-client-java6-1.18.0-rc-sources.jar", 
+          "path": "libs-sources/google-api-client-java6-1.21.0-sources.jar", 
           "type": "source"
         }, 
         {
@@ -184,7 +184,7 @@
           "type": "license"
         }
       ], 
-      "version": "1.18.0-rc", 
+      "version": "1.21.0", 
       "name": "Java 6 (and higher) extensions to the Google APIs Client Library", 
       "environments": [
         "generic"
@@ -193,11 +193,11 @@
     {
       "files": [
         {
-          "path": "libs/google-api-client-servlet-1.18.0-rc.jar", 
+          "path": "libs/google-api-client-servlet-1.21.0.jar", 
           "type": "binary"
         }, 
         {
-          "path": "libs-sources/google-api-client-servlet-1.18.0-rc-sources.jar", 
+          "path": "libs-sources/google-api-client-servlet-1.21.0-sources.jar", 
           "type": "source"
         }, 
         {
@@ -205,7 +205,7 @@
           "type": "license"
         }
       ], 
-      "version": "1.18.0-rc", 
+      "version": "1.21.0", 
       "name": "Servlet extensions to the Google APIs Client Library", 
       "environments": [
         "appengine", 
@@ -215,11 +215,11 @@
     {
       "files": [
         {
-          "path": "libs/google-oauth-client-1.18.0-rc.jar", 
+          "path": "libs/google-oauth-client-1.21.0.jar", 
           "type": "binary"
         }, 
         {
-          "path": "libs-sources/google-oauth-client-1.18.0-rc-sources.jar", 
+          "path": "libs-sources/google-oauth-client-1.21.0-sources.jar", 
           "type": "source"
         }, 
         {
@@ -227,11 +227,11 @@
           "type": "license"
         }, 
         {
-          "path": "libs/google-oauth-client-1.18.0-rc.jar.properties", 
+          "path": "libs/google-oauth-client-1.21.0.jar.properties", 
           "type": "android-properties"
         }
       ], 
-      "version": "1.18.0-rc", 
+      "version": "1.21.0", 
       "name": "Google OAuth Client Library", 
       "environments": [
         "*"
@@ -240,11 +240,11 @@
     {
       "files": [
         {
-          "path": "libs/google-oauth-client-appengine-1.18.0-rc.jar", 
+          "path": "libs/google-oauth-client-appengine-1.21.0.jar", 
           "type": "binary"
         }, 
         {
-          "path": "libs-sources/google-oauth-client-appengine-1.18.0-rc-sources.jar", 
+          "path": "libs-sources/google-oauth-client-appengine-1.21.0-sources.jar", 
           "type": "source"
         }, 
         {
@@ -252,7 +252,7 @@
           "type": "license"
         }
       ], 
-      "version": "1.18.0-rc", 
+      "version": "1.21.0", 
       "name": "Google App Engine extensions to the Google OAuth Client Library", 
       "environments": [
         "appengine"
@@ -261,11 +261,11 @@
     {
       "files": [
         {
-          "path": "libs/google-oauth-client-java6-1.18.0-rc.jar", 
+          "path": "libs/google-oauth-client-java6-1.21.0.jar", 
           "type": "binary"
         }, 
         {
-          "path": "libs-sources/google-oauth-client-java6-1.18.0-rc-sources.jar", 
+          "path": "libs-sources/google-oauth-client-java6-1.21.0-sources.jar", 
           "type": "source"
         }, 
         {
@@ -273,7 +273,7 @@
           "type": "license"
         }
       ], 
-      "version": "1.18.0-rc", 
+      "version": "1.21.0", 
       "name": "Java 6 (and higher) extensions to the Google OAuth Client Library", 
       "environments": [
         "generic"
@@ -282,11 +282,11 @@
     {
       "files": [
         {
-          "path": "libs/google-oauth-client-jetty-1.18.0-rc.jar", 
+          "path": "libs/google-oauth-client-jetty-1.21.0.jar", 
           "type": "binary"
         }, 
         {
-          "path": "libs-sources/google-oauth-client-jetty-1.18.0-rc-sources.jar", 
+          "path": "libs-sources/google-oauth-client-jetty-1.21.0-sources.jar", 
           "type": "source"
         }, 
         {
@@ -294,7 +294,7 @@
           "type": "license"
         }
       ], 
-      "version": "1.18.0-rc", 
+      "version": "1.21.0", 
       "name": "Jetty extensions to the Google OAuth Client Library", 
       "environments": [
         "generic"
@@ -303,11 +303,11 @@
     {
       "files": [
         {
-          "path": "libs/google-oauth-client-servlet-1.18.0-rc.jar", 
+          "path": "libs/google-oauth-client-servlet-1.21.0.jar", 
           "type": "binary"
         }, 
         {
-          "path": "libs-sources/google-oauth-client-servlet-1.18.0-rc-sources.jar", 
+          "path": "libs-sources/google-oauth-client-servlet-1.21.0-sources.jar", 
           "type": "source"
         }, 
         {
@@ -315,7 +315,7 @@
           "type": "license"
         }
       ], 
-      "version": "1.18.0-rc", 
+      "version": "1.21.0", 
       "name": "Servlet and JDO extensions to the Google OAuth Client Library", 
       "environments": [
         "appengine", 
@@ -325,11 +325,11 @@
     {
       "files": [
         {
-          "path": "libs/google-http-client-1.18.0-rc.jar", 
+          "path": "libs/google-http-client-1.21.0.jar", 
           "type": "binary"
         }, 
         {
-          "path": "libs-sources/google-http-client-1.18.0-rc-sources.jar", 
+          "path": "libs-sources/google-http-client-1.21.0-sources.jar", 
           "type": "source"
         }, 
         {
@@ -337,11 +337,11 @@
           "type": "license"
         }, 
         {
-          "path": "libs/google-http-client-1.18.0-rc.jar.properties", 
+          "path": "libs/google-http-client-1.21.0.jar.properties", 
           "type": "android-properties"
         }
       ], 
-      "version": "1.18.0-rc", 
+      "version": "1.21.0", 
       "name": "Google HTTP Client Library", 
       "environments": [
         "*"
@@ -350,11 +350,11 @@
     {
       "files": [
         {
-          "path": "libs/google-http-client-android-1.18.0-rc.jar", 
+          "path": "libs/google-http-client-android-1.21.0.jar", 
           "type": "binary"
         }, 
         {
-          "path": "libs-sources/google-http-client-android-1.18.0-rc-sources.jar", 
+          "path": "libs-sources/google-http-client-android-1.21.0-sources.jar", 
           "type": "source"
         }, 
         {
@@ -362,11 +362,11 @@
           "type": "license"
         }, 
         {
-          "path": "libs/google-http-client-android-1.18.0-rc.jar.properties", 
+          "path": "libs/google-http-client-android-1.21.0.jar.properties", 
           "type": "android-properties"
         }
       ], 
-      "version": "1.18.0-rc", 
+      "version": "1.21.0", 
       "name": "Android platform extensions to the Google HTTP Client Library", 
       "environments": [
         "android"
@@ -375,11 +375,11 @@
     {
       "files": [
         {
-          "path": "libs/google-http-client-appengine-1.18.0-rc.jar", 
+          "path": "libs/google-http-client-appengine-1.21.0.jar", 
           "type": "binary"
         }, 
         {
-          "path": "libs-sources/google-http-client-appengine-1.18.0-rc-sources.jar", 
+          "path": "libs-sources/google-http-client-appengine-1.21.0-sources.jar", 
           "type": "source"
         }, 
         {
@@ -387,7 +387,7 @@
           "type": "license"
         }
       ], 
-      "version": "1.18.0-rc", 
+      "version": "1.21.0", 
       "name": "Google App Engine extensions to the Google HTTP Client Library", 
       "environments": [
         "appengine"
@@ -396,11 +396,11 @@
     {
       "files": [
         {
-          "path": "libs/google-http-client-gson-1.18.0-rc.jar", 
+          "path": "libs/google-http-client-gson-1.21.0.jar", 
           "type": "binary"
         }, 
         {
-          "path": "libs-sources/google-http-client-gson-1.18.0-rc-sources.jar", 
+          "path": "libs-sources/google-http-client-gson-1.21.0-sources.jar", 
           "type": "source"
         }, 
         {
@@ -408,11 +408,11 @@
           "type": "license"
         }, 
         {
-          "path": "libs/google-http-client-gson-1.18.0-rc.jar.properties", 
+          "path": "libs/google-http-client-gson-1.21.0.jar.properties", 
           "type": "android-properties"
         }
       ], 
-      "version": "1.18.0-rc", 
+      "version": "1.21.0", 
       "name": "GSON extensions to the Google HTTP Client Library", 
       "environments": [
         "*"
@@ -421,11 +421,11 @@
     {
       "files": [
         {
-          "path": "libs/google-http-client-jackson2-1.18.0-rc.jar", 
+          "path": "libs/google-http-client-jackson2-1.21.0.jar", 
           "type": "binary"
         }, 
         {
-          "path": "libs-sources/google-http-client-jackson2-1.18.0-rc-sources.jar", 
+          "path": "libs-sources/google-http-client-jackson2-1.21.0-sources.jar", 
           "type": "source"
         }, 
         {
@@ -433,11 +433,11 @@
           "type": "license"
         }, 
         {
-          "path": "libs/google-http-client-jackson2-1.18.0-rc.jar.properties", 
+          "path": "libs/google-http-client-jackson2-1.21.0.jar.properties", 
           "type": "android-properties"
         }
       ], 
-      "version": "1.18.0-rc", 
+      "version": "1.21.0", 
       "name": "Jackson 2 extensions to the Google HTTP Client Library", 
       "environments": [
         "*"
@@ -446,11 +446,11 @@
     {
       "files": [
         {
-          "path": "libs/google-http-client-jdo-1.18.0-rc.jar", 
+          "path": "libs/google-http-client-jdo-1.21.0.jar", 
           "type": "binary"
         }, 
         {
-          "path": "libs-sources/google-http-client-jdo-1.18.0-rc-sources.jar", 
+          "path": "libs-sources/google-http-client-jdo-1.21.0-sources.jar", 
           "type": "source"
         }, 
         {
@@ -458,11 +458,11 @@
           "type": "license"
         }, 
         {
-          "path": "libs/google-http-client-jdo-1.18.0-rc.jar.properties", 
+          "path": "libs/google-http-client-jdo-1.21.0.jar.properties", 
           "type": "android-properties"
         }
       ], 
-      "version": "1.18.0-rc", 
+      "version": "1.21.0", 
       "name": "JDO extensions to the Google HTTP Client Library", 
       "environments": [
         "*"
