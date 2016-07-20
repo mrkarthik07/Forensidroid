@@ -34,7 +34,7 @@ public class MainActivityCallRecorder extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_mainnew);
+		setContentView(R.layout.activity_callrecorder);
 
 		res = getResources();
 
@@ -83,7 +83,7 @@ public class MainActivityCallRecorder extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.activity_mainnew, menu);
+		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
 

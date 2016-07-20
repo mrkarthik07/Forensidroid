@@ -1,15 +1,23 @@
 package com.death.sensors;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.Calendar;
+import java.util.List;
+import java.util.Locale;
 
 import com.example.badone.R;
 
 import android.app.Activity;
 import android.content.Context;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -60,7 +68,7 @@ public class GPSLocationSensor extends Activity implements LocationListener{
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_mainnew, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
     
@@ -75,6 +83,31 @@ public class GPSLocationSensor extends Activity implements LocationListener{
 		TextView tvAccuracy = (TextView) findViewById(R.id.tv_accuracy);
 		long now = Calendar.getInstance().getTimeInMillis();
 		TextView tvSeconds = (TextView) findViewById(R.id.tv_seconds);
+		TextView tvAddress = (TextView) findViewById(R.id.tv_address);
+		
+		Geocoder myLocation = new Geocoder(this, Locale.getDefault());
+		List<Address> list = null;
+		try {
+			list = myLocation.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+			if (list != null && list.size() > 0) {
+				Address location1 = list.get(0);
+				String addressText = String.format("%s, %s, %s, %s, %s",
+						location1.getMaxAddressLineIndex() > 0 ? location1.getAddressLine(0) : "",
+								location1.getLocality(), // location.getAdminArea(), 
+								location1.getSubLocality(),
+								location1.getCountryName(),
+								location1.getPostalCode());
+				
+				tvAddress.setText(addressText);
+			}
+			else
+				tvAddress.setText("n/a");
+		} catch (IOException e) {
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			e.printStackTrace(pw);
+		}
+
 		
 		// Setting Current Longitude
 		tvLongitude.setText("Longitude:" + location.getLongitude());
@@ -124,6 +157,10 @@ public class GPSLocationSensor extends Activity implements LocationListener{
 	@Override
 	public void onStatusChanged(String provider, int status, Bundle extras) {
 		// TODO Auto-generated method stub		
+	}
+	
+	protected Context getContext() {
+		return SensorRegistry.getInstance().getContext();
 	}
 	
 //	public void test() {

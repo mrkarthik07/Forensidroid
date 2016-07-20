@@ -63,5 +63,4 @@ public class MyPhoneReceiver extends BroadcastReceiver {
 			}
 		}
 	}
-
 }

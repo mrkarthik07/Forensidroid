@@ -28,6 +28,7 @@
     <string name="celsius">&#176;C</string>
     <string name="orienlabel">No orientation sensor data</string>
     
+    <string name="callrecordertext">Call Recorder</string>
     <string name="menu_Enable_record">Enable Record</string>
 
     <string name="receiver_start_call">Start record call</string>
@@ -35,10 +36,38 @@
     <string name="options_title">Recording options</string>
 
     <string name="radio_Enable_record">Enable call recording</string>
-
+    
+    <string name="preference_file_key">b_YOisM40tsAAAAAAAAAJlWeREBI1mDSafzhPhVGtMOT1SCZzpopCBp7uum1Rbk_</string>
+    
     <string name="notification_ticker">Recording is now Starting</string>
     <string name="notification_title">The phone is now on a call</string>
     <string name="notification_text">If recording was enabled, recording should have started, if not you can enable recording in the application, the phone will stop the recording when the conversation ends</string>
     <string name="record_impossible">Unfortunately, it is not possible to record calls in this device. (Usually because another application/service is using the microphone in the background)</string>
     
+    <string name="sms">SMS</string>
+	<string name="calllog">Call Logs</string>
+	<string name="appinfo">Application Info</string>
+	<string name="wifi">WiFi Details</string>
+	
+	
+    <string name="title_activity_phone_status">Phone Status</string>
+    <string name="title_activity_phone">Cellphone Data</string>
+	<string name="tvPhoneStatus">Phone Status</string>
+	
+	<string name="tvServiceState">Service State : </string>
+	<string name="tvCellLocation">Cell Location : </string>
+	<string name="tvCallState">Call State : </string>
+	<string name="tvConnState">Connection State : </string>
+	<string name="tvSignalLevel">Signal Level : </string>
+	<string name="strData">Data : </string>
+	
+	
+    <string name="Bluetooth">Bluetooth</string>
+    <string name="title_activity_bluetooth">BluetoothActivity</string>
+    <string name="title_activity_wi_fi">WiFiActivity</string>
+    <string name="title_activity_nfc">NfcActivity</string>
+    <string name="nfc">NFC</string>
+    <string name="title_activity_mobile_data">MobileDataActivity</string>
+    <string name="mobile_data">Mobile Data</string>
+	
 </resources>

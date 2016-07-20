@@ -6,32 +6,46 @@
 
     <uses-sdk
         android:minSdkVersion="19"
-        android:targetSdkVersion="22" />
+        android:targetSdkVersion="23" />
 
     <uses-permission android:name="android.permission.WRITE_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/> 
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS"/>
-   	<uses-permission android:name="android.permission.READ_CALENDAR"/>
-   	<uses-permission android:name="android.permission.READ_CONTACTS" />
-   	<uses-permission android:name="android.permission.READ_USER_DICTIONARY"/>
-   	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />    
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_USER_DICTIONARY" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.STORAGE" />
-    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_UPDATES" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -39,7 +53,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.death.artifacts.MainActivity"
+            android:name="com.death.artifacts.MyAndroidAppActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -47,7 +61,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
         <activity
             android:name="com.death.artifacts.SmsActivity"
             android:label="@string/app_name" >
@@ -56,82 +69,79 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name="com.death.artifacts.SmsBroadcastReceiver" android:exported="true" >
+        <receiver
+            android:name="com.death.artifacts.SmsBroadcastReceiver"
+            android:exported="true" >
             <intent-filter android:priority="999" >
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
-                <activity
+
+        <activity
             android:name="com.death.artifacts.CallLogActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-		<receiver android:name="com.death.artifacts.PhoneStateBroadcastReceiver">
-			<intent-filter>
-    			<action android:name="android.intent.action.PHONE_STATE"/>     
-			</intent-filter>
-		</receiver>
-		
-		<activity
-            android:name="com.death.artifacts.WiFiActivity"
+        <activity
+            android:name="com.death.artifacts.WiFiDemo"
             android:label="@string/app_name" >
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-		<activity
+
+        <receiver android:name=".WiFiScanReceiver" >
+            <intent-filter>
+                <action android:name="com.death.artifacts" />
+            </intent-filter>
+        </receiver>
+
+        <activity
             android:name="com.death.artifacts.SIMActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-		<activity
+        <activity android:name=".PhoneStatusActivity" />
+        <activity
             android:name="com.death.artifacts.BrowserActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-		 <activity
+        <activity
             android:name="com.death.artifacts.CalendarActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-		 <activity
+        <activity
             android:name="com.death.artifacts.ContactsActivity"
             android:label="@string/app_name" >
             <intent-filter>
-               	<category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-		 <activity
+        <activity
             android:name="com.death.artifacts.DictionaryActivity"
             android:label="@string/app_name" >
             <intent-filter>
-               	<category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-		 <activity
+        <activity
             android:name="com.death.artifacts.AppInfoActivity"
             android:label="@string/app_name" >
             <intent-filter>
-               	<category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-		 <activity
+        <activity
             android:name="com.death.callrecording.MainActivityCallRecorder"
             android:label="@string/title_activity_main" >
             <intent-filter>
@@ -147,7 +157,7 @@
         </receiver>
 
         <service android:name="com.death.callrecording.RecordService" />
-        
+
         <activity
             android:name="com.death.sensors.SensorActivity"
             android:label="@string/title_activity_main" >
@@ -155,7 +165,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
         <activity
             android:name="com.death.sensors.GPSLocationSensor"
             android:label="@string/title_activity_main" >
@@ -163,8 +172,55 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-    </application>
+        <activity android:name="monitor.code.reechee88.filemonitorapp.MainActivityMonitor" >
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.dropbox.client2.android.AuthActivity"
+            android:configChanges="orientation|keyboard"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            <intent-filter>
 
+                <!-- Change this to be db- followed by your app key -->
+                <data android:scheme="db-hdo404rwj0xs072" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.death.androidconnection.BluetoothActivity"
+            android:label="@string/title_activity_bluetooth" >
+        </activity>
+        <activity
+            android:name="com.death.androidconnection.WiFiActivity"
+            android:label="@string/title_activity_wi_fi" >
+        </activity>
+        <activity
+            android:name="com.death.androidconnection.NfcActivity"
+            android:label="@string/title_activity_nfc"
+            android:launchMode="singleTask" >
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="application/com.death.androidconnection" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.death.androidconnection.MobileDataActivity"
+            android:label="@string/title_activity_mobile_data" >
+        </activity>
+        <activity
+            android:name="com.death.androidconnection.MainActivityConnection"
+            android:label="@string/app_name" >
+        </activity>
+    </application>
 
 </manifest>

@@ -12,18 +12,17 @@
         android:id="@+id/go"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/value"
+        android:layout_below="@+id/spinner1"
         android:layout_centerHorizontal="true"
         android:text="Go"
         android:onClick="goTo" />
 
-    <EditText
-        android:id="@+id/value"
+    <Spinner
+        android:id="@+id/spinner1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="130dp"
-        android:ems="10" />
+        android:layout_marginTop="59dp" />
 
 </RelativeLayout>

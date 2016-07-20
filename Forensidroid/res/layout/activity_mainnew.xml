@@ -58,11 +58,19 @@
         android:layout_centerInParent="true" />
     
     <TextView
+        android:id="@+id/tv_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_seconds"
+        android:layout_centerHorizontal="false"
+        android:layout_centerInParent="true" />
+    
+    <TextView
         android:id="@+id/tv_locationnetwork"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/tv_seconds"
+        android:layout_below="@+id/tv_address"
         android:text="@string/str_tv_locationnetwork"
         android:textStyle="bold" />
 

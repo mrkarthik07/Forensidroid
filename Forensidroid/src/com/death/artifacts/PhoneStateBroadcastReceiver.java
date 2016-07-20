@@ -25,7 +25,7 @@ public class PhoneStateBroadcastReceiver extends BroadcastReceiver {
         	 }
             
             //this will update the UI with message
-        	 CallLogActivity inst = CallLogActivity.instance();
+//        	 CallLogActivity inst = CallLogActivity.instance();
         	 //inst.updateList(Set); 
         }
     }   

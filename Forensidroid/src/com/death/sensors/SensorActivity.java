@@ -4,7 +4,6 @@ import com.example.badone.R;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -16,10 +15,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.format.DateUtils;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class SensorActivity extends Activity implements SensorEventListener {
     private SensorManager mgr;
@@ -225,49 +222,58 @@ public class SensorActivity extends Activity implements SensorEventListener {
     }
 
     public void onSensorChanged(SensorEvent event) {
-    	String msg = String.format("X: %8.4f\nY: %8.4f\nZ: %8.4f\nRotation: %d",
-            event.values[0], event.values[1], event.values[2], mRotation);
-    	text.setText(msg);
-    	text.invalidate();
+    	if (event.sensor.getType() == Sensor.TYPE_LINEAR_ACCELERATION) {
+    		String msg = String.format("X: %8.4f\nY: %8.4f\nZ: %8.4f\nRotation: %d",
+    				event.values[0], event.values[1], event.values[2], mRotation);
+    		text.setText(msg);
+    		text.invalidate();
+    	}
     	//Ambient%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    	float ambient_temperature = event.values[0];
-		temperaturelabel.setText(String.valueOf(ambient_temperature) + getResources().getString(R.string.celsius));
-		
+    	if (event.sensor.getType() == Sensor.TYPE_AMBIENT_TEMPERATURE) {
+    		float ambient_temperature = event.values[0];
+    		temperaturelabel.setText(String.valueOf(ambient_temperature) + getResources().getString(R.string.celsius));
+    	}
 		//Gravity%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-		for(int i=0; i<3; i++) {
-            gravity [i] = (float) (0.1 * event.values[i] + 0.9 * gravity[i]);
-            motion[i] = event.values[i] - gravity[i];
-		}
-		ratio = gravity[1]/SensorManager.GRAVITY_EARTH;
-		if(ratio > 1.0) ratio = 1.0;
-		if(ratio < -1.0) ratio = -1.0;
-		mAngle = Math.toDegrees(Math.acos(ratio));
-		if(gravity[2] < 0) {
-			mAngle = -mAngle;
-		}
-		if(counter++ % 10 == 0) {
-			String gtavitymsg = String.format(
-                "Raw values\nX: %8.4f\nY: %8.4f\nZ: %8.4f\n" +
-                		"Gravity\nX: %8.4f\nY: %8.4f\nZ: %8.4f\n" +
-                		"Motion\nX: %8.4f\nY: %8.4f\nZ: %8.4f\nAngle: %8.1f",
-                		event.values[0], event.values[1], event.values[2],
-                		gravity[0], gravity[1], gravity[2],
-                		motion[0], motion[1], motion[2],
-                		mAngle);
-			gravitytext.setText(gtavitymsg);
-			gravitytext.invalidate();
-			counter=1;
-		}
+    	if (event.sensor.getType() == Sensor.TYPE_GRAVITY) {
+    		for(int i=0; i<3; i++) {
+    			gravity [i] = (float) (0.1 * event.values[i] + 0.9 * gravity[i]);
+    			motion[i] = event.values[i] - gravity[i];
+    		}
+    		ratio = gravity[1]/SensorManager.GRAVITY_EARTH;
+    		if(ratio > 1.0) ratio = 1.0;
+    		if(ratio < -1.0) ratio = -1.0;
+    		mAngle = Math.toDegrees(Math.acos(ratio));
+    		if(gravity[2] < 0) {
+    			mAngle = -mAngle;
+    		}
+    		if(counter++ % 10 == 0) {
+    			String gtavitymsg = String.format(
+    					"Raw values\nX: %8.4f\nY: %8.4f\nZ: %8.4f\n" +
+    							"Gravity\nX: %8.4f\nY: %8.4f\nZ: %8.4f\n" +
+    							"Motion\nX: %8.4f\nY: %8.4f\nZ: %8.4f\nAngle: %8.1f",
+    							event.values[0], event.values[1], event.values[2],
+    							gravity[0], gravity[1], gravity[2],
+    							motion[0], motion[1], motion[2],
+    							mAngle);
+    			gravitytext.setText(gtavitymsg);
+    			gravitytext.invalidate();
+    			counter=1;
+    		}
+    	}
       //GyroScope%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-		String gyromsg = String.format(
-	              "X: %4.2f\nY: %4.2f\nZ: %4.2f\n" ,
-	            event.values[0], event.values[1], event.values[2]);
-		gyrotext.setText(gyromsg);
-	    gyrotext.invalidate();
+		if (event.sensor.getType() == Sensor.TYPE_GYROSCOPE) {
+			String gyromsg = String.format(
+					"X: %4.2f\nY: %4.2f\nZ: %4.2f\n" ,
+					event.values[0], event.values[1], event.values[2]);
+			gyrotext.setText(gyromsg);
+			gyrotext.invalidate();
+		}
 	    //Light%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	    lightmsg = String.format("SI lux units: %8.6f", event.values[0]);
-	    lighttext.setText(lightmsg);
-	    lighttext.invalidate();
+		if (event.sensor.getType() == Sensor.TYPE_LIGHT) {
+			lightmsg = String.format("SI lux units: %8.6f", event.values[0]);
+			lighttext.setText(lightmsg);
+			lighttext.invalidate();
+		}
 	    //LinearAcceleration%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	    if (event.sensor.getType() == Sensor.TYPE_LINEAR_ACCELERATION) {
 	   	    float[] values = event.values;
@@ -284,13 +290,15 @@ public class SensorActivity extends Activity implements SensorEventListener {
 		    lineartext.invalidate();    
 	    }
 	    //Magnetic%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	    synchronized (this) {
-            if (event.sensor.getType() == Sensor.TYPE_MAGNETIC_FIELD) {
-                magneticX.setText( Float.toString( event.values[0]));
-                magneticY.setText( Float.toString( event.values[1]));
-                magneticZ.setText( Float.toString( event.values[2]));
-            }
-        }
+	    if (event.sensor.getType() == Sensor.TYPE_MAGNETIC_FIELD) {
+	    	synchronized (this) {
+	    		if (event.sensor.getType() == Sensor.TYPE_MAGNETIC_FIELD) {
+	    			magneticX.setText( Float.toString( event.values[0]));
+	    			magneticY.setText( Float.toString( event.values[1]));
+	    			magneticZ.setText( Float.toString( event.values[2]));
+	    		}
+	    	}
+	    }
 	    //Orientation%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	    float[] mGravity = null;
 	    float[] mGeomagnetic = null;
@@ -318,6 +326,7 @@ public class SensorActivity extends Activity implements SensorEventListener {
         	Roll.setText( Float.toString( event.values[2]));
 		}else orienlabel.setText(R.string.orienlabel);
         //Proximity%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
         if (event.sensor.getType() == Sensor.TYPE_PROXIMITY) {
         	if (event.values[0] == 0) {
         		proximitytext.setText("Near - "+Float.toString( event.values[0])+"cm");

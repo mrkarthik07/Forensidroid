@@ -1,148 +1,139 @@
 package com.death.artifacts;
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.Date;
 
 import com.example.badone.R;
 
-import android.app.Activity;
-import android.content.ContentResolver;
+import android.app.ListActivity;
+import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.CallLog;
-import android.provider.CallLog.Calls;
-import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class CallLogActivity extends Activity {
-	 private static final String DATE_FORMAT = "dd-MM-yyyy, hh:mm:ss.SSS";
-	    String filepath = Environment.getExternalStorageDirectory().getAbsolutePath();
-	    File folder = new File(filepath+File.separator+FILE_DIRECTORY);
-	    File file = new File(folder+File.separator+"CallLog.txt");
-		public static final String FILE_DIRECTORY = "CallLog";
-		private static final String TAG = null;
-		int count;
+public class CallLogActivity extends ListActivity {
 
-	    private static CallLogActivity inst;
-	    ArrayList<String> CallLogList = new ArrayList<String>();
-	    ListView CallLogView;
-	    ArrayAdapter arrayAdapter;
-	    
-	    public static CallLogActivity instance() {
-	        return inst;
-	    }
+	private ArrayList<String> conNames;
+	private ArrayList<String> conNumbers;
+	private ArrayList<String> conTime;
+	private ArrayList<String> conDate;
+	private ArrayList<String> conType;
 
-	    @Override
-	    public void onStart() {
-	        super.onStart();
-	        inst = this;
-	    }
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.main);
 
-	    @Override
-	    protected void onCreate(Bundle savedInstanceState) {
-	        super.onCreate(savedInstanceState);
-	        oncreate();
-			
-	        setContentView(R.layout.activity_psbroadcast);
-	        CallLogView = (ListView) findViewById(R.id.textview_call);
-	        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, CallLogList);
-	        CallLogView.setAdapter(arrayAdapter);
+		conNames = new ArrayList<String>();
+		conNumbers = new ArrayList<String>();
+		conTime = new ArrayList<String>();
+		conDate = new ArrayList<String>();
+		conType = new ArrayList<String>();
 
-	        refreshCallLog();
-	        
-	    }
+		Cursor curLog = CallLogHelper.getAllCallLogs(getContentResolver());
 
-		private void oncreate() {
-	    	if (!folder.exists()) {
-				try {
-					folder.mkdir();
-				} catch (Exception e) {
-					Log.d(TAG, "Folder not created :"+e);
-				}
-			}
-			
-			if (!file.exists()) {
-				try {
-					file.createNewFile();
-					FileOutputStream  writer = new FileOutputStream (file, true);
-					writer.write("Phone Number, Msg, Time\n".getBytes());
-				} catch (IOException e) {
-					Log.d(TAG, "File not created :"+e);
-				}
-			}	
+		setCallLogs(curLog);
+
+		setListAdapter(new MyAdapter(this, android.R.layout.simple_list_item_1,
+				R.id.tvNameMain, conNames));
+	}
+
+	private class MyAdapter extends ArrayAdapter<String> {
+
+		public MyAdapter(Context context, int resource, int textViewResourceId,
+				ArrayList<String> conNames) {
+			super(context, resource, textViewResourceId, conNames);
+
 		}
-		
-		public void refreshCallLog() {
-	        ContentResolver contentResolver = getContentResolver();
-	        Uri uri = Calls.CONTENT_URI;
-	        
-	        Cursor CallLogCursor = contentResolver.query(uri, null, null, null, null);
-	        int indexDate = CallLogCursor.getColumnIndex(CallLog.Calls.DATE);
-	        int indexDuration = CallLogCursor.getColumnIndex(CallLog.Calls.DURATION);
-	        int indexNumber = CallLogCursor.getColumnIndex(CallLog.Calls.NUMBER);
-	        int indexType = CallLogCursor.getColumnIndex((CallLog.Calls.TYPE));
-	        
-	        if (!CallLogCursor.moveToFirst()) return;
-	        arrayAdapter.clear();
-	        do {
-	        	String str = CallLogCursor.getString(indexType) +
-	                    "\n" + CallLogCursor.getString(indexNumber) +
-	            		"\n" + getDate(Long.valueOf(CallLogCursor.getString(indexDate)), DATE_FORMAT)+
-	            		"\n" + CallLogCursor.getString(indexDuration);
-	            arrayAdapter.add(str);
-	            
-	            try{
-					BufferedWriter buf = new BufferedWriter(new FileWriter(file, true)); 
-	            	buf.append(CallLogCursor.getString(indexType));buf.append(":");
-	            	buf.append(CallLogCursor.getString(indexNumber));buf.append(",");
-	            	buf.append(getDate(Long.valueOf(CallLogCursor.getString(indexDate)), DATE_FORMAT));buf.append(",");
-	            	buf.append(CallLogCursor.getString(indexDuration));
-	            	buf.newLine();buf.close();
-	            }catch (IOException e){
-	            	Log.d(TAG, "Inbox not created :"+e);
-	            }
-	        } while (CallLogCursor.moveToNext());	        
-	    }
 
-	    public void updateList(final String smsMessage) {
-	        arrayAdapter.insert(smsMessage, 0);
-	        arrayAdapter.notifyDataSetChanged();
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
 
-	    }
+			View row = setList(position, parent);
+			return row;
+		}
 
-	    public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
-	        try {
-	            String[] smsMessages = CallLogList.get(pos).split("\n");
-	            String address = smsMessages[0];
-	            String smsMessage = "";
-	            for (int i = 1; i < smsMessages.length; ++i) {
-	                smsMessage += smsMessages[i];
-	            }
+		private View setList(int position, ViewGroup parent) {
+			LayoutInflater inf = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-	            String smsMessageStr = address + "\n";
-	            smsMessageStr += smsMessage;
-	            Toast.makeText(this, smsMessageStr, Toast.LENGTH_SHORT).show();
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	        }
-	    }
-	    private static String getDate(final long milliSeconds, final String dateFormat) {
-	        final Calendar calendar = Calendar.getInstance();
-	        calendar.setTimeInMillis(milliSeconds);
-	        return new SimpleDateFormat(dateFormat).format(calendar.getTime());
-	    }   	    
+			View row = inf.inflate(R.layout.liststyle, parent, false);
+
+			TextView tvName = (TextView) row.findViewById(R.id.tvNameMain);
+			TextView tvNumber = (TextView) row.findViewById(R.id.tvNumberMain);
+			TextView tvTime = (TextView) row.findViewById(R.id.tvTime);
+			TextView tvDate = (TextView) row.findViewById(R.id.tvDate);
+			TextView tvType = (TextView) row.findViewById(R.id.tvType);
+
+			tvName.setText(conNames.get(position));
+			tvNumber.setText(conNumbers.get(position));
+			tvTime.setText("( " + conTime.get(position) + "sec )");
+			tvDate.setText(conDate.get(position));
+			tvType.setText("( " + conType.get(position) + " )");
+
+			return row;
+		}
+	}
+
+	private void setCallLogs(Cursor curLog) {
+		while (curLog.moveToNext()) {
+			String callNumber = curLog.getString(curLog
+					.getColumnIndex(android.provider.CallLog.Calls.NUMBER));
+			conNumbers.add(callNumber);
+
+			String callName = curLog
+					.getString(curLog
+							.getColumnIndex(android.provider.CallLog.Calls.CACHED_NAME));
+			if (callName == null) {
+				conNames.add("Unknown");
+			} else
+				conNames.add(callName);
+
+			String callDate = curLog.getString(curLog
+					.getColumnIndex(android.provider.CallLog.Calls.DATE));
+			SimpleDateFormat formatter = new SimpleDateFormat(
+					"dd-MMM-yyyy HH:mm");
+			String dateString = formatter.format(new Date(Long
+					.parseLong(callDate)));
+			conDate.add(dateString);
+
+			String callType = curLog.getString(curLog
+					.getColumnIndex(android.provider.CallLog.Calls.TYPE));
+			if (callType.equals("1")) {
+				conType.add("Incoming");
+			} else if (callType.equals("2")) {
+				conType.add("Outgoing");
+			} else{
+				conType.add("Missed");
+			}
+			String duration = curLog.getString(curLog
+					.getColumnIndex(android.provider.CallLog.Calls.DURATION));
+			conTime.add(duration);
+
+		}
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater imf = getMenuInflater();
+		imf.inflate(R.menu.main, menu);
+		return true;
+	}
+
+//	@Override
+//	public boolean onOptionsItemSelected(MenuItem item) {
+//		if (item.getItemId() == R.id.item1) {
+//			Intent intent = new Intent(CallLogActivity.this, InsertCallLog.class);
+//			startActivity(intent);
+//		}
+//		return super.onOptionsItemSelected(item);
+//	}
+
 }
